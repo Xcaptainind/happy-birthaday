@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Tillu!</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<!-- Loading Screen -->
+<div id="loadingScreen" class="loading-screen">
+  <div class="loading-content">
+    <div class="loading-spinner"></div>
+    <h2 class="loading-text">Loading Birthday Wishes...</h2>
+    <div class="loading-progress">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Confetti Canvas -->
+<canvas id="confetti"></canvas>
+
+<!-- Fireworks Canvas -->
+<canvas id="fireworks"></canvas>
+
+<!-- Birthday Heading -->
+<div class="birthday-heading">
+  <h1 class="neon-glow">Happy Birthday Tillu! 🎉🎂</h1>
+</div>
+
+<!-- Personal Message from Aslam -->
+<div class="personal-message" id="personalMessage">
+  <button class="message-close" onclick="closeMessage()">×</button>
+  <div class="message-container">
+    <h2 class="message-title">A Special Message from Aslam</h2>
+    <div class="message-content">
+      <p class="message-text">
+        Dear Gokul, my dear friend! 🎂✨
+      </p>
+      <p class="message-text">
+        Remember that day in BTech 1st year when you walked up to me with that warm smile and extended your hand for a handshake? That simple "Hi" changed everything! From that moment, you became more than just a classmate - you became my brother in this journey called life.
+      </p>
+      <p class="message-text">
+        Through all the ups and downs, the late-night study sessions, the laughter-filled breaks, and even those tough times when we needed each other most - you've always been there. You've been my rock in happy times and my comfort in sad times. Your friendship has been the greatest gift I could ask for.
+      </p>
+      <p class="message-text">
+        Today, on your special day, I want you to know how much you mean to me. You're not just celebrating another year, you're celebrating the amazing person you've become and the incredible friend you are to everyone around you.
+      </p>
+      <p class="message-text">
+        May this year bring you all the happiness, success, and love you deserve. Here's to many more years of friendship, laughter, and unforgettable memories together! 🎊🎉
+      </p>
+      <p class="message-signature">
+        With love and gratitude,<br>
+        <span class="signature-name">Aslam</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Personal Message from Evildead -->
+<div class="personal-message" id="evildeadMessage">
+  <button class="message-close" onclick="closeEvildeadMessage()">×</button>
+  <div class="message-container">
+    <h2 class="message-title">A Special Message from Evildead</h2>
+    <div class="message-content">
+      <p class="message-text">
+        To the sweetest nd craziest friend, since the day I met u for few days I felt awkward to match ur vibe but later the days passed I just involved in the every act we done , spent lots of time in doing crazy works enjoyed every thing we done in hard to funny ways 😉
+      </p>
+      <p class="message-text">
+        Wellll i wish u to be happy ever with lots of love nd happiness 😊❤️
+      </p>
+      <p class="message-signature">
+        With love and friendship,<br>
+        <span class="signature-name">Evildead</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Message Trigger Buttons -->
+<div class="message-trigger">
+  <button class="trigger-btn" onclick="showMessage()">💌 Read Aslam's Message</button>
+  <button class="trigger-btn evildead-btn" onclick="showEvildeadMessage()">💌 Read Evildead's Message</button>
+</div>
+
+<!-- Floating Balloons -->
+<div class="balloons-container">
+  <div class="balloon balloon-1">🎈</div>
+  <div class="balloon balloon-2">🎈</div>
+  <div class="balloon balloon-3">🎈</div>
+  <div class="balloon balloon-4">🎈</div>
+  <div class="balloon balloon-5">🎈</div>
+  <div class="balloon balloon-6">🎈</div>
+</div>
+
+<!-- partial:index.partial.html -->
+<div id="drag-container">
+  <div id="spin-container">
+
+
+
+
+
+
+
+    <img src="1.jpg" alt="">
+    <img src="2.jpg" alt="">
+    <img src="3.jpg" alt="">
+    <img src="4.jpg" alt="">
+    <img src="5.jpg" alt="">
+    <img src="6.jpg" alt="">
+    <img src="7.jpg" alt="">
+
+
+    <video controls autoplay muted loop playsinline>
+      <source src="29.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- Text at center of ground -->
+    <p class="animated-border">Happy Birthday Wishes! 🎊✨</p>
+  </div>
+  <div id="ground"></div>
+</div>
+
+<div id="music-container"></div>
+
+
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+
