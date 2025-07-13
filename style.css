@@ -642,3 +642,39 @@ body {
   color: #ffd93d;
   transform: scale(1.2);
 }
+
+/* Music control button */
+.music-control {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.music-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.music-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+.music-btn:active {
+  transform: translateY(0);
+}
+
+/* Hide music control after music starts */
+.music-control.hidden {
+  display: none;
+}
