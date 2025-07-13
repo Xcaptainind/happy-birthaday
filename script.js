@@ -68,7 +68,7 @@ if (autoRotate) {
 // add background music using 29.mp4 audio
 if (bgMusicURL && !audioPlayed) {
   document.getElementById('music-container').innerHTML += `
-<audio id="bg-music" src="${bgMusicURL}" preload="auto" loop>    
+<audio id="bg-music" src="${bgMusicURL}" preload="auto" loop muted>    
 <p>If you are reading this, it is because your browser does not support the audio element.</p>
 </audio>
 `;
@@ -76,11 +76,37 @@ if (bgMusicURL && !audioPlayed) {
   // Handle autoplay restrictions
   const audio = document.getElementById('bg-music');
   if (audio) {
-    // Try to play on user interaction
+    // Function to unmute and play music
     const playMusic = () => {
       if (!audioPlayed) {
-        audio.play().catch(e => console.log('Audio play failed:', e));
-        audioPlayed = true;
+        const musicControl = document.getElementById('music-control');
+        audio.muted = false;
+        audio.volume = 0.7; // Set volume to 70%
+        audio.play().then(() => {
+          audioPlayed = true;
+          console.log('Background music started playing');
+          
+          // Hide the music control button
+          if (musicControl) {
+            musicControl.classList.add('hidden');
+          }
+        }).catch(e => {
+          console.log('Audio play failed:', e);
+          // Try again with muted first
+          audio.muted = true;
+          audio.play().then(() => {
+            setTimeout(() => {
+              audio.muted = false;
+              audio.volume = 0.7;
+            }, 100);
+            audioPlayed = true;
+            
+            // Hide the music control button
+            if (musicControl) {
+              musicControl.classList.add('hidden');
+            }
+          }).catch(e2 => console.log('Audio play failed again:', e2));
+        });
       }
     };
     
@@ -88,14 +114,58 @@ if (bgMusicURL && !audioPlayed) {
     document.addEventListener('click', playMusic, { once: true });
     document.addEventListener('touchstart', playMusic, { once: true });
     document.addEventListener('keydown', playMusic, { once: true });
+    document.addEventListener('mousedown', playMusic, { once: true });
+    document.addEventListener('scroll', playMusic, { once: true });
     
-    // Also try to play immediately
+    // Try to play after page loads
     setTimeout(() => {
       if (!audioPlayed) {
-        audio.play().catch(e => console.log('Audio autoplay failed:', e));
-        audioPlayed = true;
+        playMusic();
       }
-    }, 1000);
+    }, 2000);
+    
+    // Try to play after loading screen disappears
+    setTimeout(() => {
+      if (!audioPlayed) {
+        playMusic();
+      }
+    }, 4000);
+  }
+}
+
+// ===================== Music Functions =======================
+function startMusic() {
+  const audio = document.getElementById('bg-music');
+  const musicControl = document.getElementById('music-control');
+  
+  if (audio && !audioPlayed) {
+    audio.muted = false;
+    audio.volume = 0.7;
+    audio.play().then(() => {
+      audioPlayed = true;
+      console.log('Background music started playing');
+      
+      // Hide the music control button
+      if (musicControl) {
+        musicControl.classList.add('hidden');
+      }
+    }).catch(e => {
+      console.log('Audio play failed:', e);
+      // Try again with muted first
+      audio.muted = true;
+      audio.play().then(() => {
+        setTimeout(() => {
+          audio.muted = false;
+          audio.volume = 0.7;
+        }, 100);
+        audioPlayed = true;
+        
+        // Hide the music control button
+        if (musicControl) {
+          musicControl.classList.add('hidden');
+        }
+      }).catch(e2 => console.log('Audio play failed again:', e2));
+    });
   }
 }
 
